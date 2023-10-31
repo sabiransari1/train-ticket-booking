@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Ticket Booking</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav>
+      <div id="navbar">
+        <a href="./index.html">Registration</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./booking.html">Booking</a>
+      </div>
+    </nav>
+
+    <!-- main -->
+    <main>
+      <div id="mainDiv">
+        <form id="registrar">
+          <input type="text" id="id" placeholder="Enter Your Unique ID" />
+          <input type="text" id="name" placeholder="Enter Your Name" />
+          <input type="number" id="age" placeholder="Enter Your Age" />
+
+          <select id="fstation">
+            <option>Choose Your From Station</option>
+            <option value="Banglore">Banglore</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+          </select>
+
+          <select id="tstation">
+            <option>Choose Your To Station</option>
+            <option value="Banglore">Banglore</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+          </select>
+
+          <input type="date" id="date" placeholder="Enter Your Journey Date" />
+
+          <select id="seat">
+            <option>Choose Your Seat Type</option>
+            <option value="AC-First-Class">AC First Class</option>
+            <option value="Sleeper-Class">Sleeper Class</option>
+            <option value="Second-Class">Second Class</option>
+            <option value="General">General</option>
+          </select>
+
+          <input type="submit" value="Registrar" />
+        </form>
+      </div>
+    </main>
+  </body>
+  <script src="./js/index.js"></script>
+</html>

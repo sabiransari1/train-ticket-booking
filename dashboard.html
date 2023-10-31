@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Train Ticket Booking</title>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav>
+      <div id="navbar">
+        <a href="./index.html">Registration</a>
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./booking.html">Booking</a>
+      </div>
+    </nav>
+
+    <!-- main -->
+    <main>
+      <div id="mainDiv">
+        <div id="fandS">
+          <select id="filterseat">
+            <option value="">Filter By Seat Type</option>
+            <option value="AC-First-Class">AC First Class</option>
+            <option value="Sleeper-Class">Sleeper Class</option>
+            <option value="Second-Class">Second Class</option>
+            <option value="General">General</option>
+          </select>
+
+          <select id="agesort">
+            <option value="">Sort By Age</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+
+          <select id="datesort">
+            <option value="">Sort By Age</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+
+          <!-- <div id="ages">
+            <h3>Sort By Age</h3>
+            <label>Ascending</label>
+            <input type="radio" id="agesort" value="ageasc" name="agesort" />
+            <label>Descending</label>
+            <input type="radio" id="agesort" value="agedesc" name="agesort" />
+          </div>
+
+          <div id="dates">
+            <h3>Sort By Journey date</h3>
+            <label>Ascending</label>
+            <input type="radio" value="dateasc" name="datesort" />
+            <label>Descending</label>
+            <input type="radio" value="datedesc" name="datesort" />
+          </div> -->
+        </div>
+
+        <table>
+          <!-- thead -->
+          <thead>
+            <tr>
+              <td><b>ID</b></td>
+              <td><b>NAME</b></td>
+              <td><b>AGE</b></td>
+              <td><b>FROM-STATION</b></td>
+              <td><b>TO-STATION</b></td>
+              <td><b>DATE</b></td>
+              <td><b>SEAT</b></td>
+              <td><b>OTP</b></td>
+              <td><b>REJECT</b></td>
+              <td><b>CONFIRM</b></td>
+            </tr>
+          </thead>
+
+          <!-- tbody -->
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+  <script src="./js/dashboard.js"></script>
+</html>
