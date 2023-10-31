@@ -3,6 +3,9 @@ const filterseat = document.getElementById('filterseat');
 const agesort = document.getElementById('agesort');
 const datesort = document.getElementById('datesort');
 
+let registrarData =
+  JSON.parse(localStorage.getItem('registrar')) || new Array();
+
 window.addEventListener('load', () => {
   let registrarData =
     JSON.parse(localStorage.getItem('registrar')) || new Array();
@@ -136,28 +139,34 @@ filterseat.addEventListener('change', () => {
 agesort.addEventListener('change', () => {
   let agesortValue = agesort.value;
 
-  let registrarData =
-    JSON.parse(localStorage.getItem('registrar')) || new Array();
+  // let registrarData =
+  //   JSON.parse(localStorage.getItem('registrar')) || new Array();
 
   let sortAgeRegistrarData =
     agesortValue == 'asc'
       ? sortAscFunc(registrarData, 'age')
       : sortDescFunc(registrarData, 'age');
-  getData(sortAgeRegistrarData);
+
+  registrarData = sortAgeRegistrarData;
+
+  getData(registrarData);
 });
 
 // sort by date
 datesort.addEventListener('change', () => {
   let datesortValue = datesort.value;
 
-  let registrarData =
-    JSON.parse(localStorage.getItem('registrar')) || new Array();
+  // let registrarData =
+  //   JSON.parse(localStorage.getItem('registrar')) || new Array();
 
   let sortDateRegistrarData =
     datesortValue == 'asc'
       ? sortAscFunc(registrarData, 'date')
       : sortDescFunc(registrarData, 'date');
-  getData(sortDateRegistrarData);
+
+  registrarData = sortDateRegistrarData;
+
+  getData(registrarData);
 });
 
 // sortAscFunc
