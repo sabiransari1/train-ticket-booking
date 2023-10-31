@@ -121,18 +121,20 @@ const otp = () => {
 filterseat.addEventListener('change', () => {
   let filterseatValue = filterseat.value;
 
-  let registrarData =
+  let registrarDatax =
     JSON.parse(localStorage.getItem('registrar')) || new Array();
 
   let filterSeatRegistrarData = registrarData?.filter(
     (item) => item.seat == filterseatValue
   );
 
-  if (!filterSeatRegistrarData.length) {
-    getData(registrarData);
+  registrarData = filterSeatRegistrarData;
+
+  if (!registrarData.length) {
+    getData(registrarDatax);
     return;
   }
-  getData(filterSeatRegistrarData);
+  getData(registrarData);
 });
 
 // sort by age
