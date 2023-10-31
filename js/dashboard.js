@@ -127,7 +127,7 @@ filterseat.addEventListener('change', () => {
 
   if (!filterSeatRegistrarData.length) {
     getData(registrarData);
-    return
+    return;
   }
   getData(filterSeatRegistrarData);
 });
@@ -136,12 +136,70 @@ filterseat.addEventListener('change', () => {
 agesort.addEventListener('change', () => {
   let agesortValue = agesort.value;
 
-  console.log(agesortValue);
+  let registrarData =
+    JSON.parse(localStorage.getItem('registrar')) || new Array();
+
+  let sortAgeRegistrarData =
+    agesortValue == 'asc'
+      ? sortAscFunc(registrarData, 'age')
+      : sortDescFunc(registrarData, 'age');
+  getData(sortAgeRegistrarData);
 });
 
 // sort by date
 datesort.addEventListener('change', () => {
   let datesortValue = datesort.value;
 
-  console.log(datesortValue);
+  let registrarData =
+    JSON.parse(localStorage.getItem('registrar')) || new Array();
+
+  let sortDateRegistrarData =
+    datesortValue == 'asc'
+      ? sortAscFunc(registrarData, 'date')
+      : sortDescFunc(registrarData, 'date');
+  getData(sortDateRegistrarData);
 });
+
+// sortAscFunc
+function sortAscFunc(registrarData, condition) {
+  let n = registrarData.length;
+
+  for (let i = 0; i <= n - 2; i++) {
+    let flag = false;
+    for (let j = 0; j <= n - i - 2; j++) {
+      if (registrarData[j][condition] > registrarData[j + 1][condition]) {
+        flag = true;
+        tmp = registrarData[j];
+        registrarData[j] = registrarData[j + 1];
+        registrarData[j + 1] = tmp;
+      }
+    }
+    if (flag == false) {
+      break;
+    }
+  }
+
+  return registrarData;
+}
+
+// sortDescFunc
+function sortDescFunc(registrarData, condition) {
+  let n = registrarData.length;
+
+  for (let i = 0; i <= n - 2; i++) {
+    let flag = false;
+    for (let j = 0; j <= n - i - 2; j++) {
+      if (registrarData[j][condition] < registrarData[j + 1][condition]) {
+        flag = true;
+        tmp = registrarData[j];
+        registrarData[j] = registrarData[j + 1];
+        registrarData[j + 1] = tmp;
+      }
+    }
+    if (flag == false) {
+      break;
+    }
+  }
+
+  return registrarData;
+}
