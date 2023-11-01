@@ -131,6 +131,7 @@ filterseat.addEventListener('change', () => {
   registrarData = filterSeatRegistrarData;
 
   if (!registrarData.length) {
+    registrarData = registrarDatax;
     getData(registrarDatax);
     return;
   }
