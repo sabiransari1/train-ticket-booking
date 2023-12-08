@@ -27,7 +27,7 @@ registrar.addEventListener('submit', (e) => {
   }
 
   if (fstation === tstation) {
-    alert('From-station should be differnt to To-station');
+    alert('From-station should be different to To-station');
     return;
   }
 
@@ -41,7 +41,7 @@ registrar.addEventListener('submit', (e) => {
     seat,
   };
 
-  if (id || name || age || fstation || tstation || date || seat) {
+  if (id && name && age && fstation && tstation && date && seat) {
     registrarFunc(registrarInfo);
   }
 });
@@ -50,7 +50,6 @@ registrar.addEventListener('submit', (e) => {
 const registrarFunc = (registrarInfo) => {
   let registrarData =
     JSON.parse(localStorage.getItem('registrar')) || new Array();
-  let x = [...registrarData, registrarInfo];
 
   let uniqueIDCheck = registrarData?.find(
     (item) => item.id == registrarInfo.id
@@ -60,6 +59,8 @@ const registrarFunc = (registrarInfo) => {
     alert('Duplicate ID, Please Enter a unique ID');
     return;
   }
+
+  let x = [...registrarData, registrarInfo];
 
   localStorage.setItem('registrar', JSON.stringify(x));
   alert('Booking Successfull');
